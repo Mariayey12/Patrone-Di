@@ -1,4 +1,4 @@
-package Singleton;
+package SingletonRegistroUsuarios;
 
 public class RegularUser extends User {
     // Constructor

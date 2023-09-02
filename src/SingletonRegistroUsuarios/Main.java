@@ -1,4 +1,4 @@
-package Singleton;
+package SingletonRegistroUsuarios;
 import java.util.List;
 //Este programa crea una instancia de UserRegistry,
 // agrega usuarios a la lista, obtiene la lista completa de usuarios y

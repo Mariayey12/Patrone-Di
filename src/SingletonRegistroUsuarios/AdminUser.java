@@ -1,4 +1,4 @@
-package Singleton;
+package SingletonRegistroUsuarios;
 public class AdminUser extends User {
     // Constructor
     public AdminUser(String username, String email, String password) {

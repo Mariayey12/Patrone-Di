@@ -1,4 +1,4 @@
-package Singleton;
+package SingletonRegistroUsuarios;
 import java.util.ArrayList;
 import java.util.List;
 

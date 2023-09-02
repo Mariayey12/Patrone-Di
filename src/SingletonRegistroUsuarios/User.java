@@ -1,4 +1,4 @@
-package Singleton;
+package SingletonRegistroUsuarios;
 
 public class User {
     private String userName;
