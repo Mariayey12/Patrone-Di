@@ -1,8 +1,6 @@
 package FACTORYPersonajesVideojuegoRPG;
 // Paso 4: Crea la clase FabricaPersonajes para aplicar el patrón Factory.
-
 public class FabricaPersonajes {
-
     public Personaje crearPersonaje(String tipo){
         Habilidad habilidad;
         switch (tipo.toLowerCase()) {
