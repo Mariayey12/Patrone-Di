@@ -1,23 +1,21 @@
 package PROTOTYPEGestiónCuentasBancarias;
 
-// Paso 2: Implementa clases concretas que hereden de CuentaBancaria para representar diferentes tipos de cuentas.
+// Clase concreta que representa una cuenta de ahorro.
 class CuentaAhorro extends CuentaBancaria {
     private double tasaInteres;
 
-    public CuentaAhorro(int numero, double saldo, String titular, double tasaInteres) {
-        super(numero, saldo, titular);
+    public CuentaAhorro(int numero, String titular, double tasaInteres) {
+        super(numero, titular);
         this.tasaInteres = tasaInteres;
     }
 
-    @Override
-    public void realizarTransaccion(double monto) {
-        if (monto > 0) {
-            setSaldo(getSaldo() + monto);
-        }
+    public void calcularIntereses() {
+        double intereses = obtenerSaldo() * tasaInteres;
+        realizarTransaccion(intereses);
     }
 
-    // Método específico para calcular intereses en una Cuenta de Ahorro.
-    public double calcularIntereses() {
-        return getSaldo() * tasaInteres / 100;
+    @Override
+    public void aplicarOperacionEspecial() {
+        calcularIntereses();
     }
 }

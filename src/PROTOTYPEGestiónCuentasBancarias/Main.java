@@ -1,24 +1,32 @@
 package PROTOTYPEGestiónCuentasBancarias;
-
+import java.util.HashMap;
+import java.util.Map;
 public class Main {
     public static void main(String[] args) {
-        try {
-            // Paso 4: Crea instancias de cuentas, realiza transacciones y muestra información.
-            CuentaBancaria cuentaAhorro = new CuentaAhorro(12345, 1000, "Juan Pérez", 2.5);
-            CuentaBancaria cuentaCorriente = new CuentaCorriente(54321, 2000, "María García", 1.0);
+        // Crear un mapa para almacenar cuentas bancarias.
+        Map<Integer, CuentaBancaria> cuentas = new HashMap<>();
 
-            System.out.println("Saldo Cuenta de Ahorro antes de la transacción: " + cuentaAhorro.obtenerSaldo());
-            cuentaAhorro.realizarTransaccion(500);
-            System.out.println("Saldo Cuenta de Ahorro después de la transacción: " + cuentaAhorro.obtenerSaldo());
-            System.out.println("Intereses generados en Cuenta de Ahorro: " + ((CuentaAhorro) cuentaAhorro).calcularIntereses());
+        // Crear cuentas de ahorro y cuentas corrientes.
+        CuentaBancaria cuentaAhorro1 = new CuentaAhorro(101, "Cliente1", 0.05);
+        CuentaBancaria cuentaCorriente1 = new CuentaCorriente(201, "Cliente2", 10.0);
 
-            System.out.println("Saldo Cuenta Corriente antes de la transacción: " + cuentaCorriente.obtenerSaldo());
-            cuentaCorriente.realizarTransaccion(-300);
-            System.out.println("Saldo Cuenta Corriente después de la transacción: " + cuentaCorriente.obtenerSaldo());
-            ((CuentaCorriente) cuentaCorriente).cobrarComision();
-            System.out.println("Saldo Cuenta Corriente después de cobrar comisión: " + cuentaCorriente.obtenerSaldo());
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
+        // Agregar cuentas al mapa.
+        cuentas.put(cuentaAhorro1.obtenerNumero(), cuentaAhorro1);
+        cuentas.put(cuentaCorriente1.obtenerNumero(), cuentaCorriente1);
+
+        // Realizar transacciones y aplicar operaciones especiales.
+        cuentaAhorro1.realizarTransaccion(1000.0);
+        cuentaAhorro1.aplicarOperacionEspecial();
+
+        cuentaCorriente1.realizarTransaccion(500.0);
+        cuentaCorriente1.aplicarOperacionEspecial();
+
+        // Mostrar información de las cuentas.
+        for (CuentaBancaria cuenta : cuentas.values()) {
+            System.out.println("Número de cuenta: " + cuenta.obtenerNumero());
+            System.out.println("Titular: " + cuenta.obtenerTitular());
+            System.out.println("Saldo: " + cuenta.obtenerSaldo());
+            System.out.println();
         }
     }
 }
